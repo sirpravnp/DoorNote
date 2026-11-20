@@ -54,7 +54,7 @@ Group into categories, each item a single concrete, checkable action -- this sho
 - **Communication** (2-4 items, optional): e.g. clear opening/consent, summarizing back to the patient, appropriate empathy statement, clear closing.
 - **Rotation-specific category** (only if `rotations.md` calls for one): e.g. Safety Assessment (psychiatry) or Stabilization (EM), 2-5 items.
 
-Mark 2-4 items across the set as **[RED FLAG]** -- these are the ones that matter most in the debrief.
+Mark 2-4 items across the set as **[RED FLAG]** (up to 5 in a time-critical case with several can't-miss diagnoses) -- these are the ones that matter most in the debrief.
 
 Include one item under Communication (or Assessment) for **"opens the assessment with a clear one-line summary statement"** -- this gets scored during the post-encounter note per `references/post_encounter_note.md`, not just verbally.
 

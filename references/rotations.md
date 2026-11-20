@@ -10,7 +10,8 @@ If the user names no rotation, use the internal medicine / ambulatory defaults a
 - **Sensitive exams are stated, not performed.** Breast, pelvic, rectal, genital and speculum exams: when the user says they would perform one ("I'd do a pelvic exam"), give the findings as an **[Exam finding]**. Give credit for offering a chaperone and for explaining the exam first.
 - **Time-critical cases.** If a case is unstable (EM, surgery, OB emergencies, acute neuro deficits), give the setting, arrival time, door vitals and visible appearance up front. Visible signs (pale, clutching the chest) are fine at the door; symptoms the patient would report (sweating, nausea, radiation) still wait for questions. Keep a rough clock for ECGs, interventions and results. Don't make the patient sicker or better on the user's behalf; if they spend a long time on a detailed history before addressing an unstable airway, breathing, circulation or bleeding, let the encounter play out and score it.
 - **Rotation-specific rubric items.** Keep the five standard categories (History, Physical Exam, Differential, Plan/Workup, Communication). Add a sixth category only when the rotation needs one (listed below), such as Safety Assessment in psychiatry or Stabilization in EM.
-- **Red flags.** Mark 2-4 items **[RED FLAG]** using the rotation's can't-miss list below.
+- **Red flags.** Mark 2-4 items **[RED FLAG]** using the rotation's can't-miss list below (up to 5 in a time-critical case).
+- **Note format.** When a rotation's note has required elements (G_P_ and gestational age, an MSE and risk level, a lesion localization, MDM and disposition), add a rubric item for documenting them.
 
 ## Internal medicine / family medicine / ambulatory
 
