@@ -4,13 +4,14 @@ Use this structure whenever the user asks for a topic that isn't already in `ref
 
 ## 1. Pick the clinical picture
 
+- Decide the **setting** (clinic, ward, ED, labor and delivery) and, for time-critical presentations, the arrival time and door vitals.
 - Choose **one primary diagnosis** that's a common, realistic cause of the chief complaint in the setting the user asked for (clinic, ward, ED, labor and delivery, etc.; default to ambulatory IM).
 - Choose **2-3 real differentials**, including at least one that's a genuine red-flag/can't-miss diagnosis for that presentation (e.g. for back pain: cauda equina or malignancy; for chest pain: ACS or PE; for headache: temporal arteritis or subarachnoid hemorrhage; for fatigue: severe anemia or hypothyroidism vs. malignancy).
 - Decide up front whether this case *is* the red-flag diagnosis or a benign mimic that merely raises the question -- both are valuable practice, but you need to know which one you're building so every detail stays consistent.
 
 ## 2. Build the patient
 
-- Historian: who gives the history (the patient, a parent/caregiver, a partner) and anything each one would or wouldn't know.
+- Historian: who gives the history (the patient, a parent/caregiver, a partner) and anything each one would or wouldn't know. If someone other than the patient is present, give them a one-line main concern they'll voice if asked (a lay worry, not a diagnosis).
 - Demographics: name, age, sex, occupation, living situation -- pick values that are plausible for the diagnosis (age/risk-factor appropriate) but don't make it a giveaway (avoid clichés like "68-year-old smoker" for every cardiac case).
 - Personality/affect: give the patient a light consistent character (anxious, stoic, chatty, minimizing) so history-taking has some texture and the user has to draw information out naturally.
 
@@ -44,7 +45,7 @@ Cover, in enough detail to answer follow-ups consistently:
 
 ## 6. Build the rubric checklist
 
-Group into categories, each item a single concrete, checkable action -- this should look like a real OSCE marking sheet:
+Group into categories, each item a single concrete, checkable action -- this should look like a real OSCE marking sheet. The counts below are guides; a complex case (e.g. EM) can run a few items longer:
 
 - **History** (8-12 items): key HPI elements, pertinent positives/negatives, and explicitly mark which items are **red-flag screening** items.
 - **Physical Exam** (4-8 items): specific maneuvers/systems a good candidate would examine.
@@ -53,7 +54,7 @@ Group into categories, each item a single concrete, checkable action -- this sho
 - **Communication** (2-4 items, optional): e.g. clear opening/consent, summarizing back to the patient, appropriate empathy statement, clear closing.
 - **Rotation-specific category** (only if `rotations.md` calls for one): e.g. Safety Assessment (psychiatry) or Stabilization (EM), 2-5 items.
 
-Mark 2-3 items across the set as **[RED FLAG]** -- these are the ones that matter most in the debrief.
+Mark 2-4 items across the set as **[RED FLAG]** -- these are the ones that matter most in the debrief.
 
 Include one item under Communication (or Assessment) for **"opens the assessment with a clear one-line summary statement"** -- this gets scored during the post-encounter note per `references/post_encounter_note.md`, not just verbally.
 

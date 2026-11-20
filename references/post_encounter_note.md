@@ -33,3 +33,4 @@ If the abbreviation correctly conveys a rubric item, it counts exactly the same 
 3. Give credit for pertinent negatives only if they're explicitly documented (e.g. "denies fever, denies weight loss"), not implied by omission.
 4. Confirm the note leads the assessment with a one-line summary statement; note if it's missing even when the differential itself is otherwise reasonable.
 5. Don't penalize brevity or shorthand -- penalize missing content.
+6. Items that can only happen live (communication, exam technique) are n/a here and left out of this pass's total.

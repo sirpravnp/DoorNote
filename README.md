@@ -1,6 +1,6 @@
 # OSCE Standardized Patient Practice (Claude skill)
 
-A [Claude skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) that turns Claude into a standardized patient and examiner for OSCE practice in internal medicine and adult ambulatory/primary care.
+A [Claude skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) that turns Claude into a standardized patient and examiner for OSCE practice on any clerkship rotation: internal medicine, family medicine, pediatrics, OB/GYN, surgery, psychiatry, neurology, emergency medicine and more.
 
 Claude plays the patient while you take a history, hands over exam findings and labs only when you ask for a specific maneuver or test, listens to your assessment and plan, then has you write a post-encounter note. At the end it breaks character and scores you against a checklist rubric.
 
@@ -9,10 +9,11 @@ Claude plays the patient while you take a history, hands over exam findings and 
 - **Two scores, like a real OSCE.** The live encounter and the written note are graded separately, and the debrief names everything you asked out loud but never wrote down.
 - **Nothing is volunteered.** The patient answers only what you ask, exam findings come one maneuver at a time, and labs appear only when ordered. Missed pertinent negatives count as misses.
 - **Checklist rubrics with red flags.** Every case has History, Physical Exam, Differential, Plan and Communication items, with the can't-miss items marked and weighted in the debrief.
-- **15 written cases plus unlimited new ones.** Name any chief complaint that isn't in the bank and Claude builds a new case from the same template before the encounter starts.
+- **Any rotation.** Name a rotation and Claude adapts who gives the history (a parent in pediatrics), the focused exam, the can't-miss diagnoses, the note format (G/P and gestational age in OB, a mental status exam and suicide risk level in psychiatry, disposition in EM) and the rubric.
+- **15 written cases plus unlimited new ones.** The bank covers internal medicine and ambulatory care. Name any other chief complaint or rotation and Claude builds a new case from the same template before the encounter starts.
 - **Preventive care and geriatric tools.** An age- and sex-based screening checklist and ADL/IADL and Mini-Cog references, used only when the station calls for them.
 
-## Case bank
+## Case bank (internal medicine / ambulatory)
 
 | Case | Focus |
 |---|---|
@@ -62,7 +63,7 @@ git clone https://github.com/sirpravnp/osce-sp-practice ~/.claude/skills/osce-sp
 >
 > **Claude (debrief):** Encounter 18/27, note 14/27. You asked about rest pain but didn't document it. You never screened for PE risk factors **[RED FLAG]**...
 
-Other ways to start: "pick a random case", "run a dizziness station", or "pretend to be a patient with back pain so I can practice". It also works well with voice mode for the history portion.
+Other ways to start: "pick a random case", "a peds fever case", "OB station: third-trimester bleeding", "psych station on low mood", or "pretend to be a patient with back pain so I can practice". It also works well with voice mode for the history portion.
 
 ## Disclaimer
 
