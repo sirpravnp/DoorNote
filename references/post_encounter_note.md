@@ -13,6 +13,8 @@ A solid note covers, in roughly this order:
 - **Assessment:** a one-line summary statement first ("Symptoms most consistent with X, given Y and Z"), then a brief ranked differential if the case calls for it.
 - **Plan:** workup and management, itemized.
 
+Rotations adjust this (see `references/rotations.md`): e.g. pediatrics adds birth, development, immunizations and weight; OB/GYN opens with G_P_ and gestational age; psychiatry adds a mental status exam and a stated suicide risk level; neurology states a lesion localization; EM adds interventions given, medical decision-making and disposition. Grade the note against the format for its rotation.
+
 ## Abbreviations are fully acceptable
 
 Real notes lean on shorthand, and that's expected, not penalized. Examples:

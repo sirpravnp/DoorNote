@@ -1,15 +1,16 @@
 # Case Generation Template
 
-Use this structure whenever the user asks for a topic that isn't already in `references/case_bank/`. Build the full case in your own working context before starting the encounter -- don't show this scaffold to the user, just use it to keep yourself consistent.
+Use this structure whenever the user asks for a topic that isn't already in `references/case_bank/`, or for any rotation other than IM/ambulatory. For a rotation, read `references/rotations.md` first and apply its historian, history, exam, red-flag, note and rubric guidance at each step below. Build the full case in your own working context before starting the encounter -- don't show this scaffold to the user, just use it to keep yourself consistent.
 
 ## 1. Pick the clinical picture
 
-- Choose **one primary diagnosis** that's a common, realistic cause of the chief complaint in an ambulatory/primary-care or general IM setting.
+- Choose **one primary diagnosis** that's a common, realistic cause of the chief complaint in the setting the user asked for (clinic, ward, ED, labor and delivery, etc.; default to ambulatory IM).
 - Choose **2-3 real differentials**, including at least one that's a genuine red-flag/can't-miss diagnosis for that presentation (e.g. for back pain: cauda equina or malignancy; for chest pain: ACS or PE; for headache: temporal arteritis or subarachnoid hemorrhage; for fatigue: severe anemia or hypothyroidism vs. malignancy).
 - Decide up front whether this case *is* the red-flag diagnosis or a benign mimic that merely raises the question -- both are valuable practice, but you need to know which one you're building so every detail stays consistent.
 
 ## 2. Build the patient
 
+- Historian: who gives the history (the patient, a parent/caregiver, a partner) and anything each one would or wouldn't know.
 - Demographics: name, age, sex, occupation, living situation -- pick values that are plausible for the diagnosis (age/risk-factor appropriate) but don't make it a giveaway (avoid clichés like "68-year-old smoker" for every cardiac case).
 - Personality/affect: give the patient a light consistent character (anxious, stoic, chatty, minimizing) so history-taking has some texture and the user has to draw information out naturally.
 
@@ -50,6 +51,7 @@ Group into categories, each item a single concrete, checkable action -- this sho
 - **Differential Diagnosis** (2-4 items): the diagnoses a strong answer should mention, in reasonable priority order.
 - **Plan / Workup** (3-6 items): key tests and/or management steps.
 - **Communication** (2-4 items, optional): e.g. clear opening/consent, summarizing back to the patient, appropriate empathy statement, clear closing.
+- **Rotation-specific category** (only if `rotations.md` calls for one): e.g. Safety Assessment (psychiatry) or Stabilization (EM), 2-5 items.
 
 Mark 2-3 items across the set as **[RED FLAG]** -- these are the ones that matter most in the debrief.
 

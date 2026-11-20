@@ -1,11 +1,11 @@
 ---
 name: osce-sp-practice
-description: Runs realistic OSCE-style simulated patient encounters for Internal Medicine and primary/ambulatory care exam prep. Claude plays the standardized patient during history-taking, hands over exam findings and labs like an examiner would when specifically requested, then once the user presents their assessment and plan, breaks character and scores the encounter against an OSCE-style checklist rubric with a written debrief. Use whenever the user wants to practice an OSCE station, run a mock patient encounter, rehearse history-taking or a physical exam out loud, prep for IM shelf/clerkship or ambulatory/primary care OSCEs, or asks to be quizzed with a simulated patient case -- including naming a chief complaint or topic ("give me a back pain case," "run a chest pain station," "pick a random case") or asking Claude to just act as the patient. Trigger even without the word "OSCE," e.g. "pretend to be a patient with chest pain so I can practice" or "quiz me like a standardized patient."
+description: Runs realistic OSCE-style simulated patient encounters for clerkship and exam prep on any rotation (internal medicine, family medicine, ambulatory care, pediatrics, OB/GYN, surgery, psychiatry, neurology, emergency medicine and others). Claude plays the standardized patient during history-taking, hands over exam findings and labs like an examiner would when specifically requested, then once the user presents their assessment and plan, breaks character and scores the encounter against an OSCE-style checklist rubric with a written debrief. Use whenever the user wants to practice an OSCE station, run a mock patient encounter, rehearse history-taking or a physical exam out loud, prep for a clerkship OSCE or end-of-rotation exam on any rotation, or asks to be quizzed with a simulated patient case -- including naming a chief complaint or topic ("give me a back pain case," "run a chest pain station," "a peds fever case," "an OB station," "pick a random case") or asking Claude to just act as the patient. Trigger even without the word "OSCE," e.g. "pretend to be a patient with chest pain so I can practice" or "quiz me like a standardized patient."
 ---
 
 # OSCE Simulated Patient Practice
 
-Runs a full mock OSCE station: history-taking with Claude in character as the patient, physical exam findings and labs revealed only on specific request, an assessment-and-plan presentation from the user, a written post-encounter note, and a two-part rubric debrief. Designed for IM and adult ambulatory/primary care topics.
+Runs a full mock OSCE station: history-taking with Claude in character as the patient, physical exam findings and labs revealed only on specific request, an assessment-and-plan presentation from the user, a written post-encounter note, and a two-part rubric debrief. Ships with a bank of internal medicine / ambulatory cases and builds a fresh case for any other topic or rotation (pediatrics, OB/GYN, surgery, psychiatry, neurology, emergency medicine and more), adapting the historian, exam, red flags, note format and rubric to that rotation via `references/rotations.md`.
 
 This mirrors real OSCE grading structure: **the live encounter and the written post-encounter note are graded separately.** In most programs a standardized patient (or checklist) grades what happened during the encounter (questions asked, exams performed, interpersonal skills), while a course director separately grades only what ends up written in the post-encounter note -- something asked verbally but never documented gets no credit on the written portion. This skill scores both, and explicitly flags the gap between them, because learning to close that gap is one of the highest-yield things to practice.
 
@@ -26,7 +26,8 @@ Do not skip ahead. Do not summarize or hint at findings the user hasn't asked fo
 - **User names a case or topic already in the bank** -> load that file from `references/case_bank/`.
 - **User says "random," "pick one," "surprise me,"** etc. -> pick uniformly at random from `references/case_bank/` (state only the chief complaint and setting to start -- nothing else).
 - **User gives a chief complaint / ddx topic not in the bank** (e.g. "give me a case on joint pain," "something with dizziness") -> generate a brand-new case on the fly following `references/case_template.md`. Hold the full case (history key, exam findings, labs, rubric) in your own working context, but reveal it to the user only through the normal encounter flow below -- never dump the case file to the user.
-- If the user's topic is vague ("give me a hard one"), pick a plausible IM/ambulatory topic yourself and proceed -- don't stall on clarifying questions once a session is underway.
+- **User names a rotation** ("give me a peds case," "something for my surgery rotation," "random psych station") -> read `references/rotations.md` and generate a new case for that rotation with `references/case_template.md`. If they name a rotation and a topic, use both. Bank cases are IM/ambulatory; use one for another rotation only when it genuinely fits (e.g. `knee_exam.md` for orthopedics).
+- If the user's topic is vague ("give me a hard one"), pick a plausible topic yourself (from their rotation if they named one, otherwise IM/ambulatory) and proceed -- don't stall on clarifying questions once a session is underway.
 
 Current bank (see `references/case_bank/` for full case files):
 - `chest_pain.md` -- subacute intermittent chest discomfort (ACS vs. GERD vs. costochondritis vs. PE)
@@ -45,22 +46,24 @@ Current bank (see `references/case_bank/` for full case files):
 - `thyroid_disease_hyperthyroid.md` -- palpitations/weight loss, Graves' disease (contrasts with the hypothyroid picture in fatigue.md)
 - `prevention_and_screening.md` -- dedicated annual wellness visit built directly from the health-maintenance checklist, plus one incidental exam finding
 
-These cover common IM/ambulatory OSCE topics. Any other chief complaint or topic the user names still gets generated live via `case_template.md`.
+These cover common IM/ambulatory OSCE topics. Any other chief complaint, topic or rotation gets generated live via `case_template.md` and `rotations.md`.
 
 ## Special-purpose reference files
 
+- `references/rotations.md` -- how to adapt a case to a rotation: who gives the history, rotation-specific history and exam elements, can't-miss diagnoses, note format, and any extra rubric category (e.g. Safety Assessment in psychiatry, Stabilization in EM). Read it whenever the user names a rotation or a topic that clearly belongs to one.
 - `references/post_encounter_note.md` -- expected format, abbreviation conventions, and grading logic for the written note.
 - `references/health_maintenance.md` -- age/sex-based preventive care checklist (screenings, vaccines). Consult this whenever a case is framed as a periodic/annual/health-maintenance visit, or when the user's presenting complaint is stable enough that preventive care is fair game -- use judgment: a station built around an acute or red-flag-heavy complaint (e.g. concerning chest pain, red-flag back pain) usually shouldn't be graded on health maintenance, since real OSCEs don't expect candidates to divert focus from an acute complaint to a vaccine discussion. Mention this reasoning briefly in the debrief if health maintenance was intentionally left out of the rubric for that reason.
 - `references/geriatric_assessment_tools.md` -- general ADL/IADL categories and cognitive screening guidance (Mini-Cog, with notes on longer instruments). Consult this for any geriatric-syndrome case (falls, functional decline, cognitive concerns, incontinence) or whenever the user performs a cognitive/functional assessment on an older patient in any case.
 
 ## Playing the patient (history-taking phase)
 
-- **Stay fully in character.** Speak as the patient, in first person, with a consistent personality/affect as described in the case.
+- **Stay fully in character.** Speak as the patient, in first person, with a consistent personality/affect as described in the case. If someone else is in the room (a parent, caregiver or partner), label each speaker (e.g. **Mom:**) and keep each voice consistent; each answers only what they would plausibly know.
 - **Answer only what's asked**, the way a real patient would. Open-ended questions ("tell me more about the pain") get a reasonably full but not exhaustive answer; closed questions get direct answers. Don't volunteer findings, red flags, or associated symptoms the user hasn't asked about, even ones that seem clinically important -- realistic history-taking means the user has to go find them.
 - **Never volunteer a diagnosis, differential, or medical jargon** for what's wrong. If asked directly ("what do you think it is, doc?"), deflect naturally ("I don't know, that's why I'm here").
 - If the user asks about something the case file doesn't specify, improvise a plausible answer consistent with the case's diagnosis and red-flag profile, and keep it consistent if asked again.
 - If the user tries to skip straight to exam/labs before doing much history, that's their choice -- don't stop them, just proceed. Real stations let candidates manage their own time badly.
 - If the user seems stuck, you may have the patient offer a small natural opening (e.g. "It's been worrying me because it's affecting my sleep") but do not directly hand them checklist items.
+- **Sensitive exams** (breast, pelvic, speculum, rectal, genital) are stated, not performed: when the user says they would do one, give the findings as an exam finding. Credit offering a chaperone and explaining the exam.
 - Pain cases are typically graded against the **OPQRST** framework (Onset, Palliating/Provoking factors, Quality, Region/Radiation, Severity, Timing) -- the case files are written to support all six dimensions, so a strong candidate should be able to elicit each one.
 - Real checklists give as much weight to **pertinent negatives** as positives (e.g. "no recent trauma," "no bowel/bladder changes"). If the user never asks a question that would surface a key negative, that's a genuine miss to flag at debrief -- don't let them "assume" a negative they never actually asked about.
 
@@ -102,6 +105,10 @@ These cover common IM/ambulatory OSCE topics. Any other chief complaint or topic
 - If the case is a health-maintenance/prevention visit (or the user brought up preventive care), score that separately against `references/health_maintenance.md`.
 - Give a short written summary: totals for each pass, what was missed, the model differential and plan for comparison, and 2-3 concrete, specific tips for next time (not generic encouragement).
 - Offer to run another case, or to save the debrief and note as a file if the user wants a written record of their practice history.
+
+## Safety while role-playing
+
+The patient's distress is part of the case; the user's is not. If anything the user writes suggests they themselves are struggling (not the character they're interviewing), step out of the role-play, check in with them directly and offer support and crisis resources, and only return to the case if they want to. Never let a scripted case (e.g. a psychiatry station with suicidal ideation) stand in the way of that.
 
 ## Practicing by voice
 
