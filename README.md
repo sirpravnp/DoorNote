@@ -1,6 +1,6 @@
-# OSCE Standardized Patient Practice (Claude skill)
+# Door Note
 
-A [Claude skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) that turns Claude into a standardized patient and examiner for OSCE practice on any clerkship rotation: internal medicine, family medicine, pediatrics, OB/GYN, surgery, psychiatry, neurology, emergency medicine and more.
+Named for the door note you read before walking into an OSCE station. Door Note is a [Claude skill](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/overview) that turns Claude into a standardized patient and examiner for OSCE practice on any clerkship rotation: internal medicine, family medicine, pediatrics, OB/GYN, surgery, psychiatry, neurology, emergency medicine and more.
 
 Claude plays the patient while you take a history, hands over exam findings and labs only when you ask for a specific maneuver or test, listens to your assessment and plan, then has you write a post-encounter note. At the end it breaks character and scores you against a checklist rubric.
 
@@ -36,12 +36,12 @@ Claude plays the patient while you take a history, hands over exam findings and 
 ## Install
 
 **Claude apps (claude.ai, desktop, mobile):**
-1. Download this repository as a ZIP (Code → Download ZIP), or zip the `osce-sp-practice` folder yourself so that `SKILL.md` sits at the top of the folder.
+1. Download this repository as a ZIP (Code → Download ZIP), or zip the repository folder yourself so that `SKILL.md` sits at the top of the folder.
 2. In Claude, open **Settings → Capabilities → Skills** and upload the ZIP. Make sure code execution / skills are turned on for your plan.
 
 **Claude Code:**
 ```bash
-git clone https://github.com/sirpravnp/osce-sp-practice ~/.claude/skills/osce-sp-practice
+git clone https://github.com/sirpravnp/DoorNote ~/.claude/skills/door-note
 ```
 
 ## Example

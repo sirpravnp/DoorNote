@@ -1,5 +1,5 @@
 ---
-name: osce-sp-practice
+name: door-note
 description: Runs realistic OSCE-style simulated patient encounters for clerkship and exam prep on any rotation (internal medicine, family medicine, ambulatory care, pediatrics, OB/GYN, surgery, psychiatry, neurology, emergency medicine and others). Claude plays the standardized patient during history-taking, hands over exam findings and labs like an examiner would when specifically requested, then once the user presents their assessment and plan, breaks character and scores the encounter against an OSCE-style checklist rubric with a written debrief. Use whenever the user wants to practice an OSCE station, run a mock patient encounter, rehearse history-taking or a physical exam out loud, prep for a clerkship OSCE or end-of-rotation exam on any rotation, or asks to be quizzed with a simulated patient case -- including naming a chief complaint or topic ("give me a back pain case," "run a chest pain station," "a peds fever case," "an OB station," "pick a random case") or asking Claude to just act as the patient. Trigger even without the word "OSCE," e.g. "pretend to be a patient with chest pain so I can practice" or "quiz me like a standardized patient."
 ---
 
